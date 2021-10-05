@@ -1,0 +1,22 @@
+trigger:
+- main
+pool:
+  vmImage: 'windows-latest'
+steps:
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/powerbi'
+    Contents: '**.pbix'
+    TargetFolder: '$(Agent.TempDirectory)/$(Build.BuildId)'
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Agent.TempDirectory)/$(Build.BuildId)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'PowerBIArtifact'
+    publishLocation: 'Container'
