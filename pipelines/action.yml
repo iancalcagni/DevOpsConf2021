@@ -1,69 +1,92 @@
 # action.yml
 name: 'powerbi-actions'
+
 description: 'Automate common deployment tasks related to PowerBI'
+
 inputs:
-  PowerBIPath:
+  # mandatory
+  ClientId: # $clientId
+    description: 'ClientId: The client id of the Azure Active Directory application'
+    required: true
+  WorkspaceName: # $groupName
+    description: 'Workspace Name: The name of the Power BI workspace'
+    required: true
+  # user account
+  UserName: # $userName
+    description: 'Username: The username of the user that will perform the actions. Make sure the account does not have Multi Factor authentication enabled'
+    required: false
+  Password: # $passWord
+    description: 'Password: The password of the user'
+    required: false
+  # service principal account
+  TenantId: # $TenantId
+    description: 'Tenant ID: The identifier of the Azure Active Directory tenant'
+    required: false
+  ClientSecret: # $ClientSecret
+    description: 'Client Secret: The client secret of the application'
+    required: false
+  # extra
+  PowerBIPath: # $filePattern
     description: 'Source File: The location of the Power BI file that needs to be published. The parameter can also be a search query "*.pbix"'
     required: false
-  WorkspaceName:
-    description: 'Workspace Name: The name of the Power BI workspace'
-    required: false
-  OverWrite:
+  OverWrite: # $overwrite
     description: 'Overwrite: Checkbox for specifying if the Power BI report should be overwritten'
     required: false
-  Create:
+  Create: # $create
     description: 'Create: Create the Power BI workspace if it does not exist'
     required: false
-  Action:
+  Action: # $action
     description: 'Action: The actions that should be performed'
     required: false
-  DatasetName:
+  DatasetName: # $dataset
     description: 'Dataset: The name of the dataset'
     required: false
-  OldUrl:
+  OldUrl: # $oldUrl
     description: 'Old Url: The URL value that is specified in the existing connection'
     required: false
-  NewUrl:
+  NewUrl: # $newUrl
     description: 'New Url: The URL value for the new connection'
     required: false
-  OldServer:
+  OldServer: # $oldServer
     description: 'Old Server: The server value that is specified in the existing connection'
     required: false
-  NewServer:
+  NewServer: # $newServer
     description: 'New Server: The server value for the new connection'
     required: false
-  OldDatabase:
+  OldDatabase: # $oldDatabase
     description: 'Old Database: The database value that is specified in the existing connection'
     required: false
-  GroupObjectIds:
+  GroupObjectIds: # $GroupObjectIds
     description: 'Groups: The group object Id that should be added to the workspace (separated by ',')'
     required: false
-  NewDatabase:
+  NewDatabase: # $newDatabase
     description: 'New Database: The database value for the new connection'
     required: false
-  Permission:
+  Permission: # $accessRight
     description: 'Permission: the appropriate access rights in order to use the Power BI API'
     required: false
-  Users:
+  Users: # $UserString
     description: 'Users: The users that should be added to the workspace (separated by ',')'
     required: false
-  DatasourceType:
+  DatasourceType: # $datasourceType
     description: 'Datasource type: The datasource type that needs to be changed within the dataset'
     required: false
-  UpdateAll:
+  UpdateAll: # $UpdateAll
     description: 'Update All: Will update all datasets if checked'
     required: false
-  ServicePrincipals:
-    description: 'Service Principals: The users that should be added to the workspace (separated by ',')'
+  ServicePrincipals: # $ServicePrincipalString
+    description: 'Service Principals: The service principals that should be added to the workspace (separated by ',')'
     required: false
-  ConnectionString:
+  ConnectionString: # $ConnectionString
     description: 'Power BI Service Connection: The service connection that you have configured'
     required: false
+    
 outputs:
-  ReportId: # id of output
+  ReportId:
     description: 'The report Id of the uploaded report (only supported when uploading one report)'
-  WorkspaceId: # id of output
+  WorkspaceId:
     description: 'The Id of the workspace'
+    
 runs:
   using: 'docker'
   image: 'Dockerfile'
