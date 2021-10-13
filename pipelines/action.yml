@@ -1,0 +1,69 @@
+# action.yml
+name: 'powerbi-actions'
+description: 'Automate common deployment tasks related to PowerBI'
+inputs:
+  PowerBIPath:
+    description: 'Source File: The location of the Power BI file that needs to be published. The parameter can also be a search query "*.pbix"'
+    required: false
+  WorkspaceName:
+    description: 'Workspace Name: The name of the Power BI workspace'
+    required: false
+  OverWrite:
+    description: 'Overwrite: Checkbox for specifying if the Power BI report should be overwritten'
+    required: false
+  Create:
+    description: 'Create: Create the Power BI workspace if it does not exist'
+    required: false
+  Action:
+    description: 'Action: The actions that should be performed'
+    required: false
+  DatasetName:
+    description: 'Dataset: The name of the dataset'
+    required: false
+  OldUrl:
+    description: 'Old Url: The URL value that is specified in the existing connection'
+    required: false
+  NewUrl:
+    description: 'New Url: The URL value for the new connection'
+    required: false
+  OldServer:
+    description: 'Old Server: The server value that is specified in the existing connection'
+    required: false
+  NewServer:
+    description: 'New Server: The server value for the new connection'
+    required: false
+  OldDatabase:
+    description: 'Old Database: The database value that is specified in the existing connection'
+    required: false
+  GroupObjectIds:
+    description: 'Groups: The group object Id that should be added to the workspace (separated by ',')'
+    required: false
+  NewDatabase:
+    description: 'New Database: The database value for the new connection'
+    required: false
+  Permission:
+    description: 'Permission: the appropriate access rights in order to use the Power BI API'
+    required: false
+  Users:
+    description: 'Users: The users that should be added to the workspace (separated by ',')'
+    required: false
+  DatasourceType:
+    description: 'Datasource type: The datasource type that needs to be changed within the dataset'
+    required: false
+  UpdateAll:
+    description: 'Update All: Will update all datasets if checked'
+    required: false
+  ServicePrincipals:
+    description: 'Service Principals: The users that should be added to the workspace (separated by ',')'
+    required: false
+  ConnectionString:
+    description: 'Power BI Service Connection: The service connection that you have configured'
+    required: false
+outputs:
+  ReportId: # id of output
+    description: 'The report Id of the uploaded report (only supported when uploading one report)'
+  WorkspaceId: # id of output
+    description: 'The Id of the workspace'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
