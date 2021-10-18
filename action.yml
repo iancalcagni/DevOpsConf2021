@@ -10,6 +10,9 @@ inputs:
   clientSecret: # Client Secret
     description: 'The client secret of the application'
     required: true
+  tenantId: # Tenant ID
+    description: 'The identifier of the Azure Active Directory tenant'
+    required: true
   
 runs:
   using: 'docker'

@@ -1,7 +1,8 @@
 #get input values
 param (
     [string] $clientId,
-    [string] $clientSecret
+    [string] $clientSecret,
+    [string] $tenantId
 )
 
 
@@ -29,7 +30,6 @@ if($clientSecret){
 #parameters
 $userName = ""
 $password = ""
-$tenantId = $params.tenantId
 $authenticationType = $params.AuthenticationType
 $filePattern = $params.PowerBIPath
 $workspaceName = $params.WorkspaceName
