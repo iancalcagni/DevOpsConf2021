@@ -12,7 +12,7 @@ param (
 
 
 #get static parameters
-$params = Get-Content -Raw -Path .\params.json | ConvertFrom-Json
+$params = Get-Content -Raw -Path .\pipelines\params.json | ConvertFrom-Json
 
 
 #connected service
