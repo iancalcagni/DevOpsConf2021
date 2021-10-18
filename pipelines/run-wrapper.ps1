@@ -8,6 +8,11 @@ param (
 )
 
 
+#import powerbi module
+Import-Module .\ps_modules\PowerBI
+Import-Module .\ps_modules\ADAL.PS
+
+
 #get static parameters
 $params = Get-Content -Raw -Path .\params.json | ConvertFrom-Json
 
