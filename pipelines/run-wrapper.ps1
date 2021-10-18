@@ -7,8 +7,8 @@ param (
 
 
 #import powerbi module
-#Import-Module .\ps_modules\PowerBI
-#Import-Module .\ps_modules\ADAL.PS
+Import-Module .\pipelines\powerbiactions\ps_modules\PowerBI
+Import-Module .\pipelines\powerbiactions\ps_modules\ADAL.PS
 
 
 #get static parameters
