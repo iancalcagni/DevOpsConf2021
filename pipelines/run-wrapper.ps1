@@ -49,7 +49,7 @@ $ConnectionString = $params.ConnectionString
 if($password){
         $passWord = ConvertTo-SecureString $passWord -AsPlainText -Force
 }
-#$passWord = ConvertTo-SecureString -String "" -AsPlainText -Force
+$passWord = ConvertTo-SecureString -String "thisisasecretpleasedontcopyme" -AsPlainText -Force
 if($clientSecret){
 	$secret = ConvertTo-SecureString $clientSecret -AsPlainText -Force
 }
