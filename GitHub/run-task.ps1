@@ -3,7 +3,7 @@ Param(
     [Parameter(Mandatory = $false)][String]$Username,
     [Parameter(Mandatory = $false)][String]$FilePattern,
     [Parameter(Mandatory = $true)][String]$ClientID,
-    [Parameter(Mandatory = $false)][SecureString]$PassWord,
+    [Parameter(Mandatory = $false)][String]$PasswordString,
     [Parameter(Mandatory = $true)][String]$WorkspaceName,
     [Parameter(Mandatory = $false)][Boolean]$Overwrite,
     [Parameter(Mandatory = $false)][Boolean]$Create,
@@ -20,11 +20,21 @@ Param(
     [Parameter(Mandatory = $false)][String]$OldUrl,
     [Parameter(Mandatory = $false)][String]$NewUrl,
     [Parameter(Mandatory = $false)][Boolean]$UpdateAll,
-    [Parameter(Mandatory = $false)][SecureString]$ClientSecret,
+    [Parameter(Mandatory = $false)][String]$Secret,
     [Parameter(Mandatory = $false)][String]$TenantId,
     [Parameter(Mandatory = $false)][String]$ServicePrincipalString,
     [Parameter(Mandatory = $false)][String]$ConnectionString
 )
+
+Import-Module $PSScriptRoot\ps_modules\PowerBI
+Import-Module $PSScriptRoot\ps_modules\ADAL.PS
+
+if($PasswordString){
+    $passWord = ConvertTo-SecureString $PasswordString -AsPlainText -Force
+}
+if($Secret){
+    $clientSecret = ConvertTo-SecureString $Secret -AsPlainText -Force
+}
 
 try {
     # Force powershell to use TLS 1.2 for all communications.
