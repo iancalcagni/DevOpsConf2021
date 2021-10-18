@@ -1,4 +1,4 @@
-#get actions parameters
+#get input values
 param (
     [string] $userName,
     [string] $passWord,
@@ -7,12 +7,9 @@ param (
     [string] $tenantId
 )
 
+
 #get static parameters
 $params = Get-Content -Raw -Path .\params.json | ConvertFrom-Json
-
-
-# Get input values
-$authenticationType = $params.AuthenticationType
 
 
 #connected service
@@ -32,6 +29,7 @@ if($clientSecret){
 
 
 #parameters
+$authenticationType = $params.AuthenticationType
 $filePattern = $params.PowerBIPath
 $workspaceName = $params.WorkspaceName
 $overwrite = $params.OverWrite

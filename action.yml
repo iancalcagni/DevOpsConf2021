@@ -4,10 +4,6 @@ name: 'powerbi-actions'
 description: 'Automate common deployment tasks related to PowerBI'
 
 inputs:
-  AuthenticationType: # Authentication type
-    description: 'Select the action you would like to perform'
-    required: true
-    default: 'User'
   userName: # Username
     description: 'The username of the user that will perform the actions'
     required: true
