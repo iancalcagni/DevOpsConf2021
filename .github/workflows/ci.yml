@@ -10,4 +10,4 @@ jobs:
       - name: Perform a Pester test from the Tests.ps1 file
         shell: pwsh
         run: |
-          . GitHub/run-task.ps1 -clientId ${{ secrets.CLIENTID }} -clientSecret ${{ secrets.CLIENTSECRET }} -tenantId ${{ secrets.TENANTID }}
+          . GitHub/run-task.ps1 -clientId ${{ secrets.CLIENTID }} -secret ${{ secrets.CLIENTSECRET }} -tenantId ${{ secrets.TENANTID }}
