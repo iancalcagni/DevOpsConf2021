@@ -22,14 +22,6 @@ $params = Get-Content -Raw -Path .\pipelines\params.json | ConvertFrom-Json
 # $clientSecret = $serviceEndpoint.Auth.Parameters.servicePrincipalKey
 # $tenantId = $serviceEndpoint.Auth.Parameters.tenantId
 
-if($password){
-        $passWord = ConvertTo-SecureString $passWord -AsPlainText -Force
-}
-
-if($clientSecret){
-	$secret = ConvertTo-SecureString $clientSecret -AsPlainText -Force
-}
-
 #parameters
 $userName = ""
 $password = ""
@@ -54,6 +46,13 @@ $updateAll = $params.UpdateAll
 $ServicePrincipalsString = $params.ServicePrincipals 
 $ConnectionString = $params.ConnectionString
 
+if($password){
+        $passWord = ConvertTo-SecureString $passWord -AsPlainText -Force
+}
+#$passWord = ConvertTo-SecureString -String "" -AsPlainText -Force
+if($clientSecret){
+	$secret = ConvertTo-SecureString $clientSecret -AsPlainText -Force
+}
 
 #run task
 if($authenticationType -eq "User"){
