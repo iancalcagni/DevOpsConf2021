@@ -4,7 +4,7 @@ on:
     branches: [ main ]
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2016
     steps:
       - uses: actions/checkout@v2
       - name: Perform a Pester test from the Tests.ps1 file
