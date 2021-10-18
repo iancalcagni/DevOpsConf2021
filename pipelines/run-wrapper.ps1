@@ -1,10 +1,7 @@
 #get input values
 param (
-    [string] $userName,
-    [string] $passWord,
     [string] $clientId,
-    [string] $clientSecret,
-    [string] $tenantId
+    [string] $clientSecret
 )
 
 
@@ -24,16 +21,15 @@ $params = Get-Content -Raw -Path .\params.json | ConvertFrom-Json
 # $clientSecret = $serviceEndpoint.Auth.Parameters.servicePrincipalKey
 # $tenantId = $serviceEndpoint.Auth.Parameters.tenantId
 
-if($password){
-	$passWord = ConvertTo-SecureString $passWord -AsPlainText -Force
-}
-
 if($clientSecret){
 	$secret = ConvertTo-SecureString $clientSecret -AsPlainText -Force
 }
 
 
 #parameters
+$userName = ""
+$password = ""
+$tenantId = $params.tenantId
 $authenticationType = $params.AuthenticationType
 $filePattern = $params.PowerBIPath
 $workspaceName = $params.WorkspaceName

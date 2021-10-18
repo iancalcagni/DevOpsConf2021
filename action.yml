@@ -4,20 +4,11 @@ name: 'powerbi-actions'
 description: 'Automate common deployment tasks related to PowerBI'
 
 inputs:
-  userName: # Username
-    description: 'The username of the user that will perform the actions'
-    required: true
-  passWord: # Password
-    description: 'The password of the user'
-    required: true
   clientId: # Client ID
     description: 'The client id of the Azure Active Directory application'
     required: true
   clientSecret: # Client Secret
     description: 'The client secret of the application'
-    required: true
-  tenantId: # Tenant ID
-    description: 'The identifier of the Azure Active Directory tenant'
     required: true
   
 runs:
