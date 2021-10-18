@@ -9,6 +9,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: GTRekter/PowerBi-Action@PowerBI
         with:
-          clientId: 
-          clientSecret: 
-          tenantId: 
+          clientId: ${{ secrets.CLIENTID }}
+          clientSecret: ${{ secrets.CLIENTSECRET }}
+          tenantId: ${{ secrets.TENANTID }}
