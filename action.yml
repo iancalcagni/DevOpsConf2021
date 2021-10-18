@@ -1,0 +1,84 @@
+# action.yml
+name: 'powerbi-actions'
+
+description: 'Automate common deployment tasks related to PowerBI'
+
+inputs:
+  AuthenticationType: # Authentication type
+    description: 'Select the action you would like to perform'
+    required: true
+    default: 'User'
+  connectedServiceName: # Power BI service connection (connectedServiceNameSP)
+    description: 'Select a service connection that should be used to authenticate to Power BI'
+    required: true
+  Action: # Action
+    description: 'Select the action you would like to perform'
+    required: true
+    default: 'Publish'
+  WorkspaceName: # Workspace Name
+    description: 'The name of the power bi workspace'
+    required: true
+  PowerBIPath: # Source file
+    description: 'Absolute path of the file'
+    required: true
+  Overwrite: # Overwrite Power BI File
+    description: 'Should the dataset be overwritten?'
+    required: false
+    default: true
+  Create: # Create
+    description: 'Create the workspace when it does not exist'
+    required: false
+    default: true
+  Users: # Users (e-mail)
+    description: 'If you want to add multiple users seperate them with ","'
+    required: true
+  ServicePrincipals: # Service Principals (ClientID)
+    description: 'If you want to add multiple service principals seperate them with ","'
+    required: true
+  GroupObjectIds: # Group object Id
+    description: 'If you want to add multiple groups seperate the ids with ","'
+    required: true
+  Permission: # Permission
+    description: 'Specific permission: Admin, Member, Contributor or Viewer'
+    required: true
+  UpdateAll: # Update all datasources in workspace the datasource name will be ignored
+    description: 'Should all the datasets be overwritten?'
+    required: false
+  DatasetName: # Dataset Name
+    description: 'The name of the dataset'
+    required: false
+  ConnectionString: # Connection String
+    description: 'The SQL connection string'
+    required: false
+  DatasourceType: # Datasource Type
+    description: 'Select the type of datasource'
+    required: true
+    default: 'sql'
+  OldServer: # Old Server
+    description: 'The name the old server'
+    required: true
+  NewServer: # New Server
+    description: 'The name the new server'
+    required: true
+  OldDatabase: # Old Database
+    description: 'The old database the new server'
+    required: true
+  NewDatabase: # New Database
+    description: 'The new database'
+    required: true
+  OldUrl: # Old Url
+    description: 'The old url'
+    required: true
+  NewUrl: # New Url
+    description: 'The new url to the source'
+    required: true
+    
+outputs:
+  ReportId:
+    description: 'The report Id of the uploaded report (only supported when uploading one report)'
+  WorkspaceId:
+    description: 'The Id of the workspace'
+    
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
