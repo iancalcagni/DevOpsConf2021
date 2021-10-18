@@ -8,77 +8,22 @@ inputs:
     description: 'Select the action you would like to perform'
     required: true
     default: 'User'
-  connectedServiceName: # Power BI service connection (connectedServiceNameSP)
-    description: 'Select a service connection that should be used to authenticate to Power BI'
+  userName: # Username
+    description: 'The username of the user that will perform the actions'
     required: true
-  Action: # Action
-    description: 'Select the action you would like to perform'
+  passWord: # Password
+    description: 'The password of the user'
     required: true
-    default: 'Publish'
-  WorkspaceName: # Workspace Name
-    description: 'The name of the power bi workspace'
+  clientId: # Client ID
+    description: 'The client id of the Azure Active Directory application'
     required: true
-  PowerBIPath: # Source file
-    description: 'Absolute path of the file'
+  clientSecret: # Client Secret
+    description: 'The client secret of the application'
     required: true
-  Overwrite: # Overwrite Power BI File
-    description: 'Should the dataset be overwritten?'
-    required: false
-    default: true
-  Create: # Create
-    description: 'Create the workspace when it does not exist'
-    required: false
-    default: true
-  Users: # Users (e-mail)
-    description: 'If you want to add multiple users seperate them with ","'
+  tenantId: # Tenant ID
+    description: 'The identifier of the Azure Active Directory tenant'
     required: true
-  ServicePrincipals: # Service Principals (ClientID)
-    description: 'If you want to add multiple service principals seperate them with ","'
-    required: true
-  GroupObjectIds: # Group object Id
-    description: 'If you want to add multiple groups seperate the ids with ","'
-    required: true
-  Permission: # Permission
-    description: 'Specific permission: Admin, Member, Contributor or Viewer'
-    required: true
-  UpdateAll: # Update all datasources in workspace the datasource name will be ignored
-    description: 'Should all the datasets be overwritten?'
-    required: false
-  DatasetName: # Dataset Name
-    description: 'The name of the dataset'
-    required: false
-  ConnectionString: # Connection String
-    description: 'The SQL connection string'
-    required: false
-  DatasourceType: # Datasource Type
-    description: 'Select the type of datasource'
-    required: true
-    default: 'sql'
-  OldServer: # Old Server
-    description: 'The name the old server'
-    required: true
-  NewServer: # New Server
-    description: 'The name the new server'
-    required: true
-  OldDatabase: # Old Database
-    description: 'The old database the new server'
-    required: true
-  NewDatabase: # New Database
-    description: 'The new database'
-    required: true
-  OldUrl: # Old Url
-    description: 'The old url'
-    required: true
-  NewUrl: # New Url
-    description: 'The new url to the source'
-    required: true
-    
-outputs:
-  ReportId:
-    description: 'The report Id of the uploaded report (only supported when uploading one report)'
-  WorkspaceId:
-    description: 'The Id of the workspace'
-    
+  
 runs:
   using: 'docker'
   image: 'Dockerfile'

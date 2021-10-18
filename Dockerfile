@@ -1,5 +1,5 @@
 FROM ghcr.io/rajbos/actions-marketplace/powershell:7
 
-COPY /powerbiactions/ /src/
+COPY /pipelines/ /src/
 
-ENTRYPOINT ["pwsh", "/src/run-task.ps1"]
+ENTRYPOINT ["pwsh", "/src/run-wrap.ps1"]
