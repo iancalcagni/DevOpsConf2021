@@ -64,10 +64,10 @@ Write-Debug "OldUrl                : $($OldUrl)";
 Write-Debug "NewUrl                : $($NewUrl)";
 Write-Debug "DatasourceType        : $($DatasourceType)";
 Write-Debug "UpdateAll             : $($UpdateAll)";
-Write-Debug "ClientSecret          : $(if (![System.String]::IsNullOrWhiteSpace($ClientSecret)) { '***'; } else { '<not present>'; })")";
-Write-Debug "TenantId              : $(if (![System.String]::IsNullOrWhiteSpace($TenantId)) { '***'; } else { '<not present>'; })")";
+Write-Debug "ClientSecret          : $(if (![System.String]::IsNullOrWhiteSpace($ClientSecret)) { '***'; } else { '<not present>'; })";
+Write-Debug "TenantId              : $(if (![System.String]::IsNullOrWhiteSpace($TenantId)) { '***'; } else { '<not present>'; })";
 Write-Debug "Service Principals    : $($ServicePrincipalString)";
-Write-Debug "ConnectionString     	: $(if (![System.String]::IsNullOrWhiteSpace($ConnectionString)) { '***'; } else { '<not present>'; })";
+Write-Debug "ConnectionString      : $(if (![System.String]::IsNullOrWhiteSpace($ConnectionString)) { '***'; } else { '<not present>'; })";
 
 #AADToken
 $ResourceUrl = "https://analysis.windows.net/powerbi/api"
