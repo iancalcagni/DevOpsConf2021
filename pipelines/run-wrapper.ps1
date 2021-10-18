@@ -46,9 +46,9 @@ $updateAll = $params.UpdateAll
 $ServicePrincipalsString = $params.ServicePrincipals 
 $ConnectionString = $params.ConnectionString
 
-if($password){
-        $passWord = ConvertTo-SecureString $passWord -AsPlainText -Force
-}
+#if($password){
+#        $passWord = ConvertTo-SecureString $passWord -AsPlainText -Force
+#}
 $passWord = ConvertTo-SecureString -String "thisisasecretpleasedontcopyme" -AsPlainText -Force
 if($clientSecret){
 	$secret = ConvertTo-SecureString $clientSecret -AsPlainText -Force
