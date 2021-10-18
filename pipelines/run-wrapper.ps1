@@ -10,7 +10,7 @@ param (
 Import-Module .\pipelines\powerbiactions\ps_modules\PowerBi\powerbi.psm1 -UseWindowsPowerShell
 #Import-PowerShellDataFile .\pipelines\powerbiactions\ps_modules\ADAL.PS\ADAL.PS.psd1
 #Import-Module .\pipelines\powerbiactions\ps_modules\ADAL.PS\ADAL.PS.psm1
-Import-Module ".\pipelines\powerbiactions\ps_modules\ADAL.PS -UseWindowsPowerShell
+Import-Module .\pipelines\powerbiactions\ps_modules\ADAL.PS -UseWindowsPowerShell
 
 
 #get static parameters
