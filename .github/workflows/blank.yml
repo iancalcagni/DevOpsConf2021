@@ -1,0 +1,13 @@
+name: CI-NoAction
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Perform a Pester test from the Tests.ps1 file
+        shell: pwsh
+        run: |
+          . pipelines/run-wrapper.ps1 -clientId ${{ secrets.CLIENTID }} -clientSecret ${{ secrets.CLIENTSECRET }} -tenantId ${{ secrets.TENANTID }}
