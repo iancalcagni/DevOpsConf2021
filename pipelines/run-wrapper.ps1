@@ -8,8 +8,8 @@ param (
 
 #import powerbi module
 Import-Module .\pipelines\powerbiactions\ps_modules\PowerBi\powerbi.psm1
+Import-PowerShellDataFile .\pipelines\powerbiactions\ps_modules\ADAL.PS\ADAL.PS.psd1
 Import-Module .\pipelines\powerbiactions\ps_modules\ADAL.PS\ADAL.PS.psm1
-
 
 #get static parameters
 $params = Get-Content -Raw -Path .\pipelines\params.json | ConvertFrom-Json
