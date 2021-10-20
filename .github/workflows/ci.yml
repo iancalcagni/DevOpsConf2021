@@ -6,8 +6,7 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Perform a Pester test from the Tests.ps1 file
+      - name: Call the PS script and pu lish PBI contents
         shell: pwsh
         run: |
           . GitHub/run-task.ps1 -ClientId ${{ secrets.CLIENTID }} -Secret ${{ secrets.CLIENTSECRET }} -TenantId ${{ secrets.TENANTID }} -WorkspaceName "Training"
