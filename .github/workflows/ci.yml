@@ -7,7 +7,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Call the PS script and publish PBI contents
+      - name: Call the PS script and publish PBI contents (hello DevOps Conf!)
         shell: powershell
         run: |
           . GitHub/run-task.ps1 -ClientId ${{ secrets.CLIENTID }} -Secret ${{ secrets.CLIENTSECRET }} -TenantId ${{ secrets.TENANTID }} -WorkspaceName "DevOpsConf2021"
