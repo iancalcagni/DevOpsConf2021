@@ -1,13 +1,24 @@
 name: CI-NoAction
 on:
-  push:
-    branches: [ main ]
+  workflow_call:
+    inputs:
+      workspacename:
+        required: true
+        type: string
+    secrets:
+      clientid:
+        required: true
+      secret:
+        required: true
+      tenantid:
+        required: true
+
 jobs:
   build:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Call the PS script and publish PBI contents (hello DevOps Conf!)
+      - name: Call the PS script and publish PBI contents
         shell: powershell
         run: |
-          . GitHub/run-task.ps1 -ClientId ${{ secrets.CLIENTID }} -Secret ${{ secrets.CLIENTSECRET }} -TenantId ${{ secrets.TENANTID }} -WorkspaceName "DevOpsConf2021"
+          . GitHub/run-task.ps1 -ClientId ${{ secrets.clientid }} -Secret ${{ secrets.secret }} -TenantId ${{ secrets.tenantid }} -WorkspaceName ${{ inputs.workspacename }}
