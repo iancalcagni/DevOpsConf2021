@@ -54,4 +54,4 @@ To better understand the Yaml file contents, you can refer to the following keyn
 - Click on "Commit new file" to create the Yaml file and make the Action operational
 ### Test the solution
 In order to trigger the GitHub Action, all you need to do is satisfy the trigger rules you specified when creating the Yaml file from the previous section.
-If you followed the tutorial step by step, the workflow will trigger whenever a new commit occurs. You can test the solution by changing the name of one of the Power BI documents under the "reports" subfolder.
+If you followed the tutorial step by step, the workflow will trigger whenever a new commit occurs. You can test the solution by changing the name of one of the Power BI documents under the "reports" subfolder. 
