@@ -1,0 +1,12 @@
+name: CI-Main
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  call-workflow-passing-data:
+    uses: iancalcagni/DevOpsConf2021/.github/workflows/ci.yml@main
+    secrets:
+      clientid: ${{ secrets.CLIENTID }}
+      secret: ${{ secrets.CLIENTSECRET }}
+      tenantid: ${{ secrets.TENANTID }}
