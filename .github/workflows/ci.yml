@@ -21,4 +21,4 @@ jobs:
       - name: Call the PS script and publish PBI contents
         shell: powershell
         run: |
-          . GitHub/run-task.ps1 -ClientId ${{ secrets.clientid }} -Secret ${{ secrets.secret }} -TenantId ${{ secrets.tenantid }} -WorkspaceName 'DevOpsConf2021'
+          . GitHub/run-task.ps1 -ClientId ${{ secrets.clientid }} -Secret ${{ secrets.secret }} -TenantId ${{ secrets.tenantid }} -WorkspaceName ${{ inputs.workspacename }}
