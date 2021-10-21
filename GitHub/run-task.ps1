@@ -26,8 +26,8 @@ Param(
     [Parameter(Mandatory = $false)][String]$ConnectionString
 )
 
-Import-Module $PSScriptRoot\ps_modules\PowerBI
-Import-Module $PSScriptRoot\ps_modules\ADAL.PS
+Import-Module $PSScriptRoot\ps_modules\PowerBI -UseWindowsPowershell
+Import-Module $PSScriptRoot\ps_modules\ADAL.PS -UseWindowsPowershell
 
 if($PasswordString){
     $passWord = ConvertTo-SecureString $PasswordString -AsPlainText -Force
