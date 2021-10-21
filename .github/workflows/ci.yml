@@ -2,6 +2,10 @@ name: CI-NoAction
 on:
   workflow_call:
     inputs:
+      path:
+        required: false
+        default: './reports'
+        type: string
       workspacename:
         required: true
         type: string
@@ -21,4 +25,4 @@ jobs:
       - name: Call the PS script and publish PBI contents
         shell: powershell
         run: |
-          . GitHub/run-task.ps1 -ClientId ${{ secrets.clientid }} -Secret ${{ secrets.secret }} -TenantId ${{ secrets.tenantid }} -WorkspaceName ${{ inputs.workspacename }}
+          . GitHub/run-task.ps1 -ClientId ${{ secrets.clientid }} -Secret ${{ secrets.secret }} -TenantId ${{ secrets.tenantid }} -FilePattern ${{ inputs.path }} -WorkspaceName ${{ inputs.workspacename }} -Action 'Publish' -Create $true -Overwrite $true
