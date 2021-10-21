@@ -6,6 +6,8 @@ on:
 jobs:
   call-workflow-passing-data:
     uses: iancalcagni/DevOpsConf2021/.github/workflows/ci.yml@main
+    with:
+      workspacename: 'DevOpsConf2021'
     secrets:
       clientid: ${{ secrets.CLIENTID }}
       secret: ${{ secrets.CLIENTSECRET }}
