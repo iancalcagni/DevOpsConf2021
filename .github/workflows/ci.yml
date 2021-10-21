@@ -19,6 +19,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Call the PS script and publish PBI contents
-        shell: powershell
+        shell: pwsh
         run: |
           . GitHub/run-task.ps1 -ClientId ${{ secrets.clientid }} -Secret ${{ secrets.secret }} -TenantId ${{ secrets.tenantid }} -WorkspaceName ${{ inputs.workspacename }}
