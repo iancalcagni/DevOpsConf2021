@@ -11,5 +11,5 @@ jobs:
       path: './reports'
     secrets:
       clientid: ${{ secrets.CLIENTID }}
-      secret: ${{ secrets.CLIENTSECRET }}
+      clientsecret: ${{ secrets.CLIENTSECRET }}
       tenantid: ${{ secrets.TENANTID }}
